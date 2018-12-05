@@ -1,0 +1,4 @@
+package.json
+package-lock.json
+README.md
+build/worker.js

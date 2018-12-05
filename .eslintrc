@@ -1,0 +1,21 @@
+{
+  "extends": ["eslint:recommended", "prettier"],
+  "plugins": ["prettier"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": 0,
+    "no-debugger": 1,
+    "no-unused-vars": 1,
+    "no-useless-escape": 0,
+    "no-mixed-operators": 0,
+    "semi": ["error", "never"],
+    "radix": 0,
+    "keyword-spacing": [2, { "before": true, "after": true }]
+  },
+  "settings": {}
+}

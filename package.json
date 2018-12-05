@@ -8,7 +8,9 @@
     "type": "git",
     "url": "https://github.com/maxmarinich/hierarchy-js.git"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "node ./src"
+  },
   "keywords": [],
   "author": "Max Marinich",
   "maintainers": [
@@ -23,5 +25,7 @@
   },
   "homepage": "https://github.com/maxmarinich/hierarchy-js#readme",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "prettier": "^1.15.3"
+  }
 }
