@@ -1,0 +1,27 @@
+{
+  "name": "hierarchy-js",
+  "version": "0.1.0",
+  "description": "",
+  "main": "",
+  "types": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxmarinich/hierarchy-js.git"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "Max Marinich",
+  "maintainers": [
+    {
+      "name": "Max Marinich",
+      "email": "max.marinich@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxmarinich/hierarchy-js/issues"
+  },
+  "homepage": "https://github.com/maxmarinich/hierarchy-js#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}
