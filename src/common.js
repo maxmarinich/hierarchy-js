@@ -1,29 +1,24 @@
-const prepareInitialProps = (flatList) => {
-  return flatList.map((item) => extendInstanceProps(item, flatList))
-}
-
-const extendInstanceProps = (item, flatList) => {
-  return hasParent(item.parentId, flatList) ? item : setParentMarker(item)
-}
-
-const clearExtendedProps = (parents) => {
-  return parents.map(clearParentMarker)
-}
-
 const hasParent = (parentId, flatList) => {
-  return flatList.some((item) => parentId === item.id)
+  return flatList.some((item) => item.id === parentId)
 }
 
-const setParentMarker = (item) => {
-  return { ...item, __parent__: true }
+const findParents = (flatList) => {
+  return flatList.filter((item) => !hasParent(item.parentId, flatList))
 }
 
-const clearParentMarker = (parent) => {
-  delete parent.__parent__
-  return parent
+const findChildren = (child, flatList) => {
+  return flatList.filter((item) => item.parentId === child.id)
+}
+
+const mergeChildren = (parent, children) => {
+  if (!parent.children) {
+    parent.children = []
+  }
+  parent.children = parent.children.concat(children)
 }
 
 module.exports = {
-  prepareInitialProps,
-  clearExtendedProps,
+  findParents,
+  findChildren,
+  mergeChildren,
 }
