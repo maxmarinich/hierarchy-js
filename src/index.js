@@ -1,5 +1,5 @@
 const flatList = require('../tests/mockData/flatHierarchy')
-const createTreeHierarchy = require('./createTreeHierarchy')
+const createTreeHierarchy = require('./methods/createTreeHierarchy')
 
 const tree = createTreeHierarchy(flatList)
 

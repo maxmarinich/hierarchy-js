@@ -11,7 +11,7 @@ module.exports = [
   },
   {
     id: 4,
-    children: null,
+    children: {},
   },
   {
     id: 5,

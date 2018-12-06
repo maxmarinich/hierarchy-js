@@ -9,7 +9,8 @@
     "url": "https://github.com/maxmarinich/hierarchy-js.git"
   },
   "scripts": {
-    "start": "node ./src"
+    "start": "node ./src",
+    "lib": "gulp"
   },
   "keywords": [],
   "author": "Max Marinich",
@@ -26,6 +27,15 @@
   "homepage": "https://github.com/maxmarinich/hierarchy-js#readme",
   "dependencies": {},
   "devDependencies": {
-    "prettier": "^1.15.3"
+    "prettier": "^1.15.3",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babelify": "^7.3.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-strip-comments": "^2.5.1"
   }
 }
