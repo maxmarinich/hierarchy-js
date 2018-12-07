@@ -1,6 +1,8 @@
-const flatList = require('../tests/mockData/flatHierarchy')
-const createTreeHierarchy = require('./methods/createTreeHierarchy')
+const { createHierarchy } = require('./common')
+const { createTreeHierarchy } = require('./methods/createTreeHierarchy')
+const { createFlatHierarchy } = require('./methods/createFlatHierarchy')
 
-const tree = createTreeHierarchy(flatList)
-
-console.log(JSON.stringify(tree))
+module.exports = {
+  createTreeHierarchy: createHierarchy(createTreeHierarchy),
+  createFlatHierarchy: createHierarchy(createFlatHierarchy),
+}

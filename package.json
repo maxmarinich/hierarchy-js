@@ -9,7 +9,6 @@
     "url": "https://github.com/maxmarinich/hierarchy-js.git"
   },
   "scripts": {
-    "start": "node ./src",
     "lib": "gulp"
   },
   "keywords": [],

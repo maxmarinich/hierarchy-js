@@ -4,6 +4,7 @@ module.exports = [
   },
   {
     id: 2,
+    children: {},
   },
   {
     id: 3,
@@ -20,6 +21,7 @@ module.exports = [
   {
     id: 6,
     parentId: 111,
+    children: null,
   },
   {
     id: 7,

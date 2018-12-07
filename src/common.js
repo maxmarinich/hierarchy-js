@@ -9,6 +9,10 @@ const hasParent = (parentId, flatList) => {
   return flatList.some((item) => id(item) === parentId)
 }
 
+const hasChildren = (item) => {
+  return item && item.children && item.children.length
+}
+
 const getParents = (flatList) => {
   return flatList.filter((item) => !hasParent(parentId(item), flatList))
 }
@@ -31,4 +35,11 @@ const mergeOptionsBeforeCreateHierarchy = (options = {}) => {
   KEYS = { ...defaultKeys, ...options }
 }
 
-module.exports = { getParents, getChildren, mergeChildren, mergeOptionsBeforeCreateHierarchy }
+const createHierarchy = (method) => (flatList, options) => {
+  if (Array.isArray(flatList)) {
+    mergeOptionsBeforeCreateHierarchy(options)
+    return method(flatList)
+  }
+}
+
+module.exports = { getParents, getChildren, mergeChildren, createHierarchy, hasChildren }

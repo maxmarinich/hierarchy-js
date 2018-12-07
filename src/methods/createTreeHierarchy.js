@@ -1,11 +1,4 @@
-const { getParents, getChildren, mergeChildren, mergeOptionsBeforeCreateHierarchy } = require('../common')
-
-const createHierarchy = (flatList, options) => {
-  if (Array.isArray(flatList)) {
-    mergeOptionsBeforeCreateHierarchy(options)
-    return createTreeHierarchy(flatList)
-  }
-}
+const { getParents, getChildren, mergeChildren } = require('../common')
 
 const createTreeHierarchy = (flatList, parent) => {
   let children = []
@@ -20,4 +13,4 @@ const createTreeHierarchy = (flatList, parent) => {
   return children
 }
 
-module.exports = createHierarchy
+module.exports = { createTreeHierarchy }
