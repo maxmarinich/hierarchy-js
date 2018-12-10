@@ -1,18 +1,19 @@
-const { hasChildren } = require('../common')
+const { hasChildren, childrenKey } = require('../common')
 
-const createFlatHierarchy = (array) => {
+const createFlatHierarchy = (items, parent, options = {}) => {
   let flatList = []
 
-  array.forEach((item) => {
+  items.forEach((item) => {
     if (hasChildren(item)) {
-      const children = createFlatHierarchy(item.children)
+      const key = childrenKey()
+      const children = createFlatHierarchy(item[key])
 
-      delete item.children
-      children.push(item)
+      !options.saveExtractedChildren && delete item[key]
+      !options.excludeParent && children.push(item)
 
       flatList = flatList.concat(children)
     } else {
-      flatList.push(item)
+      !options.excludeParent && flatList.push(item)
     }
   })
   return flatList

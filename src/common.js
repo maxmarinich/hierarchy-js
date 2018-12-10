@@ -1,45 +1,48 @@
-const defaultKeys = require('./options')
+const defaultOptions = require('./options')
 
-let KEYS = {}
+let OPTIONS = {}
 
-const id = (item) => item && item[KEYS.id]
-const parentId = (item) => item && item[KEYS.parentId]
+const id = (item) => item && item[OPTIONS.id]
+const parentId = (item) => item && item[OPTIONS.parentId]
+const childrenKey = () => OPTIONS.children
 
-const hasParent = (parentId, flatList) => {
-  return flatList.some((item) => id(item) === parentId)
+const hasParent = (parentId, items) => {
+  return items.some((item) => id(item) === parentId)
 }
 
 const hasChildren = (item) => {
-  return item && item.children && item.children.length
+  const key = childrenKey()
+  return item && item[key] && item[key].length
 }
 
-const getParents = (flatList) => {
-  return flatList.filter((item) => !hasParent(parentId(item), flatList))
+const getParents = (items) => {
+  return items.filter((item) => !hasParent(parentId(item), items))
 }
 
-const getChildren = (child, flatList) => {
+const getChildren = (child, items) => {
   const childId = id(child)
-  return childId ? flatList.filter((item) => parentId(item) === childId) : []
+  return childId ? items.filter((item) => parentId(item) === childId) : []
 }
 
 const getParentChildren = (parent) => {
-  return Array.isArray(parent[KEYS.children]) ? parent[KEYS.children] : []
+  const key = childrenKey()
+  return Array.isArray(parent[key]) ? parent[key] : []
 }
 
 const mergeChildren = (parent, children) => {
   const parentChildren = getParentChildren(parent)
-  parent[KEYS.children] = parentChildren.concat(children)
+  parent[childrenKey()] = parentChildren.concat(children)
 }
 
 const mergeOptionsBeforeCreateHierarchy = (options = {}) => {
-  KEYS = { ...defaultKeys, ...options }
+  OPTIONS = { ...defaultOptions, ...options }
 }
 
-const createHierarchy = (method) => (flatList, options) => {
-  if (Array.isArray(flatList)) {
+const createHierarchy = (method) => (array, options) => {
+  if (array && array.length) {
     mergeOptionsBeforeCreateHierarchy(options)
-    return method(flatList)
+    return method(array, null, OPTIONS)
   }
 }
 
-module.exports = { getParents, getChildren, mergeChildren, createHierarchy, hasChildren }
+module.exports = { getParents, getChildren, mergeChildren, createHierarchy, hasChildren, childrenKey }

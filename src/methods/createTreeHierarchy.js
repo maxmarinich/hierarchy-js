@@ -1,14 +1,14 @@
 const { getParents, getChildren, mergeChildren } = require('../common')
 
-const createTreeHierarchy = (flatList, parent) => {
+const createTreeHierarchy = (items, parent) => {
   let children = []
 
-  if (parent) children = getChildren(parent, flatList)
-  else children = getParents(flatList)
+  if (parent) children = getChildren(parent, items)
+  else children = getParents(items)
 
   if (children.length) {
     parent && mergeChildren(parent, children)
-    children.forEach((item) => createTreeHierarchy(flatList, item))
+    children.forEach((item) => createTreeHierarchy(items, item))
   }
   return children
 }
