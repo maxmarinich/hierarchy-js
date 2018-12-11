@@ -22,7 +22,8 @@ npm install hierarchy-js
 ### _How to use_
 
 ```javascript
-    const { createTreeHierarchy } = require('hierarchy-js')
+    import { createTreeHierarchy } from 'hierarchy-js'
+
     const flatList = [
        { id: 1 },
        { id: 2, parentId: 1 },
@@ -32,30 +33,64 @@ npm install hierarchy-js
 
     const tree = createTreeHierarchy(flatList)
 
-    /* result
-        [
-            {
-                id: 1,
-                children: [
-                    {
-                        id: 2,
-                        parentId: 1,
-                        children: [
-                            {
-                                id: 3,
-                                parentId: 2
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 4,
-                parentId: 'any'
-            }
-        ]
-    */
+    // result
+    [
+      {
+        id: 1,
+        children: [
+          {
+            id: 2,
+            parentId: 1,
+            children: [
+              {
+                id: 3,
+                parentId: 2,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 4,
+        parentId: 'any',
+      },
+    ]
+```
 
+```javascript
+    import { createFlatHierarchy } from 'hierarchy-js'
+
+    const tree = [
+      {
+        id: 1,
+        children: [
+          {
+            id: 2,
+            parentId: 1,
+            children: [
+              {
+                id: 3,
+                parentId: 2,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 4,
+        parentId: 'any',
+      },
+    ]
+
+    const faltList = createFlatHierarchy(tree)
+
+    // result
+    [
+       { id: 1 },
+       { id: 2, parentId: 1 },
+       { id: 3, parentId: 2 },
+       { id: 4, parentId: 'any' },
+    ]
 ```
 
 #### Tests
