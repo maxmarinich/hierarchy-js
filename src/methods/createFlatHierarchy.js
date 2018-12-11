@@ -9,7 +9,7 @@ const createFlatHierarchy = (items, parent, options = {}) => {
       const children = createFlatHierarchy(item[key])
 
       !options.saveExtractedChildren && delete item[key]
-      !options.excludeParent && children.push(item)
+      !options.excludeParent && children.unshift(item)
 
       flatList = flatList.concat(children)
     } else {

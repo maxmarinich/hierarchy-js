@@ -15,12 +15,25 @@ npm install hierarchy-js
 ```
 
 ### _Methods_
-* `createTreeHierarchy (array, options)`
-* `createFlatHierarchy (array, options)`
+* `createTreeHierarchy (elements, options)`
+* `createFlatHierarchy (elements, options)`
 
+ - elements, `[]` - the array on which the passage is carried out.
+ - options, `{}` - props for parametrization
+
+### _Default options_
+```javascript
+    {
+      id: 'id', // find item by this key
+      parentId: 'parentId', // find parent by this key
+      children: 'children', // create or find children by this key
+      excludeParent: false, // if `true`, not include root parents to result
+      saveExtractedChildren: false, // if `true`, not delete children list from descendants
+    }
+```
 
 ### _How to use_
-
+##### _Tree structure with default options_
 ```javascript
     import { createTreeHierarchy } from 'hierarchy-js'
 
@@ -33,63 +46,70 @@ npm install hierarchy-js
 
     const tree = createTreeHierarchy(flatList)
 
-    // result
+    // tree
     [
       {
-        id: 1,
-        children: [
+        "id": 1,
+        "children": [
           {
-            id: 2,
-            parentId: 1,
-            children: [
+            "id": 2,
+            "parentId": 1,
+            "children": [
               {
-                id: 3,
-                parentId: 2,
-              },
-            ],
-          },
-        ],
+                "id": 3,
+                "parentId": 2
+              }
+            ]
+          }
+        ]
       },
       {
-        id: 4,
-        parentId: 'any',
-      },
+        "id": 4,
+        "parentId": "any"
+      }
     ]
 ```
 
+#### _Flat list with options_
 ```javascript
     import { createFlatHierarchy } from 'hierarchy-js'
 
+    const options = {
+      id: 'itemId',
+      parentId: 'parentItemId',
+      children: 'items',
+    }
+
     const tree = [
       {
-        id: 1,
-        children: [
+        itemId: 1,
+        items: [
           {
-            id: 2,
-            parentId: 1,
-            children: [
+            itemId: 2,
+            parentItemId: 1,
+            items: [
               {
-                id: 3,
-                parentId: 2,
+                itemId: 3,
+                parentItemId: 2,
               },
             ],
           },
         ],
       },
       {
-        id: 4,
-        parentId: 'any',
+        itemId: 4,
+        parentItemId: 'any',
       },
     ]
 
-    const faltList = createFlatHierarchy(tree)
+    const faltList = createFlatHierarchy(tree, options)
 
-    // result
+    // faltList
     [
-       { id: 1 },
-       { id: 2, parentId: 1 },
-       { id: 3, parentId: 2 },
-       { id: 4, parentId: 'any' },
+      { itemId: 1 },
+      { itemId: 2, parentItemId: 1 },
+      { itemId: 3, parentItemId: 2 },
+      { itemId: 4, parentItemId: 'any' },
     ]
 ```
 

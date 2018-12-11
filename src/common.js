@@ -26,7 +26,7 @@ const getChildren = (child, items) => {
 
 const getParentChildren = (parent) => {
   const key = childrenKey()
-  return Array.isArray(parent[key]) ? parent[key] : []
+  return Array.isArray(parent[key]) ? parent[key].slice() : []
 }
 
 const mergeChildren = (parent, children) => {
