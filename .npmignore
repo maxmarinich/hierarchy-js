@@ -34,6 +34,8 @@ jspm_packages
 .npm
 .gitignore
 .eslint
+.prettier
+.prettierignore
 
 # Optional REPL history
 .node_repl_history
