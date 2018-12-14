@@ -16,7 +16,7 @@ const hasChildren = (item) => {
 }
 
 const getParents = (items) => {
-  return items.filter((item) => !hasParent(parentId(item), items))
+  return items.filter((item) => id(item) && !hasParent(parentId(item), items))
 }
 
 const getChildren = (child, items) => {
