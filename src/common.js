@@ -35,12 +35,12 @@ const mergeChildren = (parent, children) => {
 }
 
 const mergeOptionsBeforeCreateHierarchy = (options = {}) => {
-  OPTIONS = { ...defaultOptions, ...options }
+  return { ...defaultOptions, ...options }
 }
 
 const createHierarchy = (method) => (array, options) => {
   if (array && array.length) {
-    mergeOptionsBeforeCreateHierarchy(options)
+    OPTIONS = mergeOptionsBeforeCreateHierarchy(options)
     return method(array, null, OPTIONS)
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "hierarchy-js",
-  "version": "0.1.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Elegant and lightweight library for working with data structures",
   "main": "lib/",
   "types": "",
   "repository": {
@@ -11,7 +11,11 @@
   "scripts": {
     "start": "gulp"
   },
-  "keywords": [],
+  "keywords": [
+    "data structures",
+    "tree structure",
+    "flat list"
+  ],
   "author": "Max Marinich",
   "maintainers": [
     {
@@ -19,6 +23,21 @@
       "email": "max.marinich@gmail.com"
     }
   ],
+  "jest": {
+    "testURL": "http://localhost/",
+    "collectCoverageFrom": [
+      "src/**/*.{js}"
+    ],
+    "testMatch": [
+      "**/?(*.)(spec|test).js"
+    ],
+    "transform": {
+      "\\.js$": "babel-jest"
+    }
+  },
+  "test": "jest",
+  "test:watch": "jest --watch",
+  "coverage": "jest --coverage",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/maxmarinich/hierarchy-js/issues"
@@ -26,7 +45,6 @@
   "homepage": "https://github.com/maxmarinich/hierarchy-js#readme",
   "dependencies": {},
   "devDependencies": {
-    "prettier": "^1.15.3",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -35,6 +53,8 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",
-    "gulp-strip-comments": "^2.5.1"
+    "gulp-strip-comments": "^2.5.1",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3"
   }
 }

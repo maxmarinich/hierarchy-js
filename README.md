@@ -1,6 +1,6 @@
 ### HierarchyJS
 
-###### _Elegant and lightweight library for working with data structures_
+Elegant and lightweight library for working with data structures
 
 #### _Features_
 

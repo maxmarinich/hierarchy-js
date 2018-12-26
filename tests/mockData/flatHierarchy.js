@@ -8,7 +8,7 @@ module.exports = [
   },
   {
     id: 3,
-    children: [{ id: 1 }],
+    children: [{ id: 123 }],
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ module.exports = [
   {
     id: 11,
     parentId: 10,
-    children: [{ id: 1 }],
+    children: [{ id: 124 }],
   },
   {
     id: 12,
