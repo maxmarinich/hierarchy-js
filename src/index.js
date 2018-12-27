@@ -1,4 +1,4 @@
-const { createHierarchy } = require('./common')
+const { createHierarchy } = require('./services/common')
 const { createTreeHierarchy } = require('./methods/createTreeHierarchy')
 const { createFlatHierarchy } = require('./methods/createFlatHierarchy')
 

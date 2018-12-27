@@ -1,4 +1,4 @@
-const { getParents, getChildren, mergeChildren } = require('../common')
+const { getParents, getChildren, mergeChildren } = require('../services/common')
 
 const createTreeHierarchy = (items, parent) => {
   let children = []

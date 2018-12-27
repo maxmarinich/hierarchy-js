@@ -1,4 +1,4 @@
-const { hasChildren, childrenKey } = require('../common')
+const { hasChildren, childrenKey } = require('../services/common')
 
 const createFlatHierarchy = (items, parent, options = {}) => {
   let flatList = []

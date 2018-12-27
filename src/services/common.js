@@ -1,10 +1,5 @@
-const defaultOptions = require('./options')
-
-let OPTIONS = {}
-
-const id = (item) => item && item[OPTIONS.id]
-const parentId = (item) => item && item[OPTIONS.parentId]
-const childrenKey = () => OPTIONS.children
+const createCopy = require('../services/createCopy')
+const { id, childrenKey, parentId, mergeOptionsBeforeCreateHierarchy } = require('./options')
 
 const hasParent = (parentId, items) => {
   return items.some((item) => id(item) === parentId)
@@ -34,15 +29,11 @@ const mergeChildren = (parent, children) => {
   parent[childrenKey()] = parentChildren.concat(children)
 }
 
-const mergeOptionsBeforeCreateHierarchy = (options = {}) => {
-  return { ...defaultOptions, ...options }
-}
-
 const createHierarchy = (method) => (array, options) => {
   if (array && array.length) {
-    OPTIONS = mergeOptionsBeforeCreateHierarchy(options)
-    return method(array, null, OPTIONS)
+    const OPTIONS = mergeOptionsBeforeCreateHierarchy(options)
+    return method(createCopy(array), null, OPTIONS)
   }
 }
 
-module.exports = { getParents, getChildren, mergeChildren, createHierarchy, hasChildren, childrenKey }
+module.exports = { getParents, getChildren, mergeChildren, hasChildren, childrenKey, createHierarchy }
