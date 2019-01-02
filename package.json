@@ -10,12 +10,16 @@
   },
   "scripts": {
     "start": "gulp",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "keywords": [
-    "data structures",
-    "tree structure",
-    "flat list"
+    "tree-structure",
+    "data-structures",
+    "data-hierarchy",
+    "flatten",
+    "flatlist",
+    "unflatten"
   ],
   "author": "Max Marinich",
   "maintainers": [

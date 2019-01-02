@@ -35,6 +35,7 @@ jspm_packages
 .gitignore
 .eslint
 .prettier
+.prettierrc
 .prettierignore
 
 # Optional REPL history
@@ -48,5 +49,7 @@ public
 static
 dist,
 src,
+tests,
+config,
 gulpfile.js
 package-lock.json

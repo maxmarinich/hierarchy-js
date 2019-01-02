@@ -1,8 +1,16 @@
 /* globals describe, expect, it */
-const { createFlatHierarchy } = require('../src')
-const { treeStructureDefault, treeStructureWithOptions } = require('./mockData/treeStructure')
+const { createFlatHierarchy } = require('../../src/index')
 
 describe('createFlatHierarchy', () => {
+  const treeStructureDefault = [
+    { id: 1, children: [{ id: 2, parentId: 1, children: [{ id: 3, parentId: 2 }] }] },
+    { id: 4, parentId: 'any' },
+  ]
+  const treeStructureWithOptions = [
+    { itemId: 1, items: [{ itemId: 2, items: [{ itemId: 3, parentItemId: 2 }], parentItemId: 1 }] },
+    { itemId: 4, parentItemId: 'any' },
+  ]
+
   it('should return default data', () => {
     expect(createFlatHierarchy()).toEqual(undefined)
   })

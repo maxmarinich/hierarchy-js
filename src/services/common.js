@@ -1,4 +1,4 @@
-const createCopy = require('../services/createCopy')
+const { createCopy } = require('../services/createCopy')
 const { id, childrenKey, parentId, mergeOptionsBeforeCreateHierarchy } = require('./options')
 
 const hasParent = (parentId, items) => {
@@ -7,10 +7,10 @@ const hasParent = (parentId, items) => {
 
 const hasChildren = (item) => {
   const key = childrenKey()
-  return item && item[key] && item[key].length
+  return !!(item && item[key] && item[key].length)
 }
 
-const getParents = (items) => {
+const getParents = (items = []) => {
   return items.filter((item) => id(item) && !hasParent(parentId(item), items))
 }
 
@@ -25,8 +25,11 @@ const getParentChildren = (parent) => {
 }
 
 const mergeChildren = (parent, children) => {
-  const parentChildren = getParentChildren(parent)
-  parent[childrenKey()] = parentChildren.concat(children)
+  if (children) {
+    const parentChildren = getParentChildren(parent)
+    parent[childrenKey()] = parentChildren.concat(children)
+  }
+  return parent
 }
 
 const createHierarchy = (method) => (array, options) => {

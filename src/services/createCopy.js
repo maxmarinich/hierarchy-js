@@ -1,8 +1,8 @@
-const createDeepCopy = (item) => {
+const createCopy = (item) => {
   if (!item || typeof item !== 'object') return item
 
   const accumulator = Array.isArray(item) ? [] : {}
-  return iterator(item, accumulator, createDeepCopy)
+  return iterator(item, accumulator, createCopy)
 }
 
 const iterator = (iterable, accumulator, callback) => {
@@ -14,4 +14,4 @@ const iterator = (iterable, accumulator, callback) => {
   return accumulator
 }
 
-module.exports = createDeepCopy
+module.exports = { createCopy, iterator }
