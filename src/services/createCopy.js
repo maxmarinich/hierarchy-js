@@ -7,6 +7,7 @@ const createCopy = (item) => {
 
 const iterator = (iterable, accumulator, callback) => {
   for (let key in iterable) {
+    // istanbul ignore next
     if (iterable.hasOwnProperty(key)) {
       accumulator[key] = callback(iterable[key])
     }
