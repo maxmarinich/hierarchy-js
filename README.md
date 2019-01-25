@@ -2,6 +2,8 @@
 
 Elegant and lightweight library for working with data structures
 
+[![npm version](https://badge.fury.io/js/hierarchy-js.svg)](https://badge.fury.io/js/hierarchy-js)
+
 #### _Features_
 
 * Creating a tree structure from a flat list
