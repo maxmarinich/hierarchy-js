@@ -56,6 +56,10 @@ npm-debug.log
 # vs code
 .vscode
 
+# coverage
+
+/coverage
+
 # Dist folder
 dist/
 lib/
