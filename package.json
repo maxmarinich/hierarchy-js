@@ -1,6 +1,6 @@
 {
   "name": "hierarchy-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Elegant and lightweight library for working with data structures",
   "main": "lib/",
   "types": "",
