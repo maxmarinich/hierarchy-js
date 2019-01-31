@@ -3,6 +3,7 @@
 Elegant and lightweight library for working with data structures
 
 [![npm version](https://badge.fury.io/js/hierarchy-js.svg)](https://badge.fury.io/js/hierarchy-js)
+[![Build Status](https://travis-ci.com/maxmarinich/hierarchy-js.svg?branch=master)](https://travis-ci.com/maxmarinich/hierarchy-js)
 [![codecov](https://codecov.io/gh/maxmarinich/hierarchy-js/branch/master/graph/badge.svg)](https://codecov.io/gh/maxmarinich/hierarchy-js)
 #### _Features_
 
