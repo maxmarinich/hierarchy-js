@@ -1,6 +1,6 @@
-language:
-  node_js
+language: node_js
+node_js:
+  - "10"
 install:
   - npm install -g codecov
-script:
-  - jest && codecov -f 'coverage/clover.xml'
+  - npm install -g jest

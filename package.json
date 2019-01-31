@@ -10,8 +10,8 @@
   },
   "scripts": {
     "start": "gulp",
-    "test": "jest",
-    "coverage": "jest && codecov -f 'coverage/clover.xml'"
+    "test": "jest && codecov -f 'coverage/clover.xml'",
+    "coverage": "jest --coverage"
   },
   "keywords": [
     "tree-structure",
