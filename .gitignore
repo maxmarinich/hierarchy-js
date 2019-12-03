@@ -60,3 +60,4 @@ npm-debug.log
 coverage
 dist
 lib
+package-lock.json

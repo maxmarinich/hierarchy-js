@@ -15,4 +15,4 @@ gulp.task('source-js', function() {
     .pipe(gulp.dest('./lib/'))
 })
 
-gulp.task('default', ['source-js'])
+gulp.task('default', gulp.series('source-js'))
