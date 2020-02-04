@@ -11,7 +11,9 @@
   "scripts": {
     "start": "gulp",
     "test": "jest && codecov -f 'coverage/clover.xml'",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "postpublish": "git push --tags",
+    "prepare": "gulp"
   },
   "keywords": [
     "tree-structure",
