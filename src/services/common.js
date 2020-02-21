@@ -2,6 +2,9 @@ const { createCopy } = require('../services/createCopy')
 const { id, childrenKey, parentId, mergeOptionsBeforeCreateHierarchy } = require('./options')
 
 const hasParent = (parentId, items) => {
+  if (Array.isArray(parentId)) {
+    return items.some((item) => parentId.includes(id(item)))
+  }
   return items.some((item) => id(item) === parentId)
 }
 
