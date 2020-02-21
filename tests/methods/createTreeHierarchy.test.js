@@ -36,4 +36,33 @@ describe('createTreeHierarchy', () => {
       { itemId: 4, parentItemId: 'any' },
     ])
   })
+
+  it('should return expected data if item has many parents ', () => {
+    const flatList = [
+      { id: 1 },
+      { id: 2, parentId: [1, 4] },
+      { id: 3, parentId: 2 },
+      { id: 4, parentId: 'any' },
+      { id: 5, parentId: 1 },
+      { id: 6, parentId: 1 },
+    ]
+
+    const result = createTreeHierarchy(flatList)
+
+    expect(result).toEqual([
+      {
+        id: 1,
+        children: [
+          { id: 2, parentId: [1, 4], children: [{ id: 3, parentId: 2 }] },
+          { id: 5, parentId: 1 },
+          { id: 6, parentId: 1 }
+        ]
+      },
+      {
+        id: 4,
+        parentId: 'any',
+        children: [{ id: 2, parentId: [1, 4], children: [{ id: 3, parentId: 2 }] }]
+      },
+    ])
+  })
 })

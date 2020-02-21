@@ -24,4 +24,25 @@ describe('mergeChildren', () => {
     const result = mergeChildren({ id: 1 }, [{ id: 2 }])
     expect(result).toEqual({ id: 1, children: [{ id: 2 }] })
   })
+
+  /*
+
+  const mergeChildren = (parent, children) => {
+  if (children) {
+    const parentChildren = getParentChildren(parent)
+    parent[childrenKey()] = parentChildren.concat(children)
+  }
+  return parent
+}
+   */
+
+  it('should return expected data in case 4', () => {
+    const result = mergeChildren({ id: 1, children: [{ id: 2 }] }, [{ id: 2 }])
+    expect(result).toEqual({ id: 1, children: [{ id: 2 }] })
+  })
+
+  it('should return expected data in case 5', () => {
+    const result = mergeChildren({ id: 1, children: [{ id: 2 }, { id: 1 }] }, [{ id: 2 }, { id: 3 }])
+    expect(result).toEqual({ id: 1, children: [{ id: 1 }, { id: 2 }, { id: 3 }] })
+  })
 })

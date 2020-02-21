@@ -19,7 +19,17 @@ const getParents = (items = []) => {
 
 const getChildren = (child, items) => {
   const childId = id(child)
-  return childId ? items.filter((item) => parentId(item) === childId) : []
+
+  return childId
+    ? items.filter((item) => {
+        const parent = parentId(item)
+
+        if (Array.isArray(parent)) {
+          return parent.includes(childId)
+        }
+        return parent === childId
+      })
+    : []
 }
 
 const getParentChildren = (parent) => {
@@ -30,9 +40,15 @@ const getParentChildren = (parent) => {
 const mergeChildren = (parent, children) => {
   if (children) {
     const parentChildren = getParentChildren(parent)
-    parent[childrenKey()] = parentChildren.concat(children)
+    parent[childrenKey()] = uniq(parentChildren.concat(children))
   }
   return parent
+}
+
+function uniq(config) {
+  return config.filter((thing, index, self) =>
+    index === self.findIndex((t) => t.id === thing.id)
+  );
 }
 
 const createHierarchy = (method) => (array, options) => {
