@@ -1,10 +1,7 @@
 /* globals describe, expect, it */
 const { mergeChildren } = require('../../../src/services/common')
-const { mergeOptionsBeforeCreateHierarchy } = require('../../../src/services/options')
 
 describe('mergeChildren', () => {
-  mergeOptionsBeforeCreateHierarchy()
-
   it('should return default data', () => {
     const result = mergeChildren()
     expect(result).toEqual(undefined)
@@ -25,17 +22,6 @@ describe('mergeChildren', () => {
     expect(result).toEqual({ id: 1, children: [{ id: 2 }] })
   })
 
-  /*
-
-  const mergeChildren = (parent, children) => {
-  if (children) {
-    const parentChildren = getParentChildren(parent)
-    parent[childrenKey()] = parentChildren.concat(children)
-  }
-  return parent
-}
-   */
-
   it('should return expected data in case 4', () => {
     const result = mergeChildren({ id: 1, children: [{ id: 2 }] }, [{ id: 2 }])
     expect(result).toEqual({ id: 1, children: [{ id: 2 }] })
@@ -43,6 +29,6 @@ describe('mergeChildren', () => {
 
   it('should return expected data in case 5', () => {
     const result = mergeChildren({ id: 1, children: [{ id: 2 }, { id: 1 }] }, [{ id: 2 }, { id: 3 }])
-    expect(result).toEqual({ id: 1, children: [{ id: 1 }, { id: 2 }, { id: 3 }] })
+    expect(result).toEqual({ id: 1, children: [{ id: 2 }, { id: 1 }, { id: 3 }] })
   })
 })

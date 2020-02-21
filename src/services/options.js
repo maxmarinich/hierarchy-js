@@ -1,6 +1,6 @@
 const defaultOptions = require('../constants')
 
-let OPTIONS = {}
+let OPTIONS = defaultOptions
 
 const id = (item) => item && item[OPTIONS.id]
 const parentId = (item) => item && item[OPTIONS.parentId]

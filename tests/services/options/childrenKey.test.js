@@ -3,7 +3,7 @@ const options = require('../../../src/services/options')
 
 describe('childrenKey', () => {
   it('should return default data', () => {
-    expect(options.childrenKey()).toEqual(undefined)
+    expect(options.childrenKey()).toEqual('children')
   })
 
   it('should return expected data in case 1', () => {

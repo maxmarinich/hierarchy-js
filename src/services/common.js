@@ -45,17 +45,17 @@ const mergeChildren = (parent, children) => {
   return parent
 }
 
-function uniq(config) {
-  return config.filter((thing, index, self) =>
-    index === self.findIndex((t) => t.id === thing.id)
-  );
-}
-
 const createHierarchy = (method) => (array, options) => {
   if (array && array.length) {
     const OPTIONS = mergeOptionsBeforeCreateHierarchy(options)
     return method(createCopy(array), null, OPTIONS)
   }
+}
+
+function uniq(config) {
+  return config.filter((thing, index, self) =>
+    index === self.findIndex((t) => id(t) === id(thing))
+  );
 }
 
 module.exports = { getParents, getChildren, mergeChildren, hasChildren, childrenKey, createHierarchy }
