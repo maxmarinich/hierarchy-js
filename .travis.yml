@@ -1,6 +1,5 @@
 language: node_js
 node_js:
-  - '10'
+  - '14'
 install:
-  - npm install -g codecov
-  - npm install -g jest
+  - npm i -g jest@28
